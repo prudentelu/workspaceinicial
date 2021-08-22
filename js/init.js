@@ -51,7 +51,7 @@ var verLocal= sessionStorage.getItem("usuario");
 
 function inicio(){ //Función para cambiar navergar hacia el index.html si se completan los datos
     
-  if(verLocal === null && (window.location.href != "file:///C:/Users/Admin.DESKTOP-HT5Q6EV/Desktop/JAP/DW/workspaceinicial/login.html")){
+  if(verLocal === null && (window.location.href != "https://prudentelu.github.io/workspaceinicial/login.html")){
       window.location.href= "login.html"};
 };
 
