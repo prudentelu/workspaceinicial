@@ -15,10 +15,10 @@ var hideSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "none";
 }
 
-var getJSONData = function(url){
-    var result = {};
+var getJSONData = function(PRODUCTS_URL){ //Agrego url que contine el json de productos
     showSpinner();
-    return fetch(url)
+    var result = {};
+    return fetch(PRODUCTS_URL) //Agrego la url como parámetro
     .then(response => {
       if (response.ok) {
         return response.json();
@@ -44,4 +44,14 @@ var getJSONData = function(url){
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
+  inicio();
 });
+
+var verLocal= sessionStorage.getItem("usuario");
+
+function inicio(){ //Función para cambiar navergar hacia el index.html si se completan los datos
+    
+  if(verLocal === null && (window.location.href != "file:///C:/Users/Admin.DESKTOP-HT5Q6EV/Desktop/JAP/DW/workspaceinicial/login.html")){
+      window.location.href= "login.html"};
+};
+
