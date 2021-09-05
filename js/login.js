@@ -2,7 +2,7 @@
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
-
+    obtenerUsuario()
 });
 //const formulario = document.getElementById('form')
 var usuario = document.getElementById('username'); //Variable que toma el id de el imput donde se ingresa el correo
@@ -21,3 +21,9 @@ function redireccionar(){ //Función para cambiar navergar hacia el index.html s
     
     }
 }
+
+function obtenerUsuario(){
+    var nombreUsuario = sessionStorage.getItem("usuario")
+    document.getElementById('obtenerUsuario').innerHTML= nombreUsuario
+}
+
