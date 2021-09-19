@@ -15,7 +15,7 @@ var hideSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "none";
 }
 
-var getJSONData = function(PRODUCTS_URL){ //Agrego url que contine el json de productos
+var getJSONData = function(PRODUCTS_URL){ //Agrego url que contine el json de productos 
     showSpinner();
     var result = {};
     return fetch(PRODUCTS_URL) //Agrego la url como parámetro
