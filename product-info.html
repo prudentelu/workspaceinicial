@@ -13,6 +13,7 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <script src="js/login.js"></script>
 </head>
 
 <body>
@@ -86,6 +87,7 @@
         <label for="exampleFormControlTextarea1">Comentario</label>
         <textarea class="form-control" id="comentDescription" rows="3"></textarea>
       </div>
+      <p id="completardatos" style= "display: none;">¡Debes seleccionar puntaje y completar el campo con tu comentario!</p> <!--Alerta campo incompleto-->
       <input type="button" class="fadeIn fourth" value="Publicar" onclick="sendComent()">
       </form>
       <a type="button" class="btn btn-light btn-lg btn-block" href="products.html">Ver productos</a>

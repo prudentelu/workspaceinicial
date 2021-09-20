@@ -108,7 +108,8 @@ function sendComent() {
     let scoreBlack = starBlack.repeat(5 - scoreHTML);
     var hoy = new Date();
     var dateTime = hoy.getFullYear() + '-' + "0" + hoy.getMonth() + '-' + hoy.getDay() + '  ' + hoy.getHours() + ':' + hoy.getMinutes() + ':' + hoy.getSeconds();
-    
+    var ingresodatos = document.getElementById('completardatos')
+
     if(comentarioHTML !== "" && scoreHTML !== 0) {
         htmlContentToAppend += `
         <a href="product-info.html" class="list-group-item list-group-item-action">
@@ -124,6 +125,11 @@ function sendComent() {
         </div>
     </a>
     ` 
+}
+else {
+ 
+    ingresodatos.style.display = "block"; //Se muestra el mensaje de error
+    
 }
 
 document.getElementById("mostrarComentarios").innerHTML += htmlContentToAppend;
