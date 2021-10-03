@@ -141,3 +141,18 @@ document.addEventListener("DOMContentLoaded", function (e) {
         showProductList();
     });
 });
+
+
+
+/*lineas de producti info 
+<small class="text-muted">` + producto.cost + ` USD</small>
+                        <small class="text-muted">` + producto.soldCount + ` Vendidos</small> 
+                        */
+
+/*htmlcontenttoappend orginal para productos relacionados 
+<div class="col-lg-3 col-md-4 col-6">
+            <div class="d-block mb-4 h-100">
+                <p>` + productosRelacionados.name + `</p>
+                <img class="img-fluid img-thumbnail" src="` + productosRelacionados.imgSrc + `" alt="">
+            </div>
+        </div>*/

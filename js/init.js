@@ -55,3 +55,8 @@ function inicio(){ //Función para cambiar navergar hacia el index.html si se co
       window.location.href= "login.html"};
 };
 
+function cerrarSesion(){
+  sessionStorage.clear();
+  window.location.href = 'login.html'
+
+}
