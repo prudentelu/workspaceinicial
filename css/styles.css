@@ -139,3 +139,65 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+.ajustesTabla {
+  border: 1px solid black; 
+  width: 80%; 
+  margin: 15px; 
+  text-align:center;
+  background-color: #212529;
+  color: white;
+}
+
+.subtítulos{
+  margin: 15px
+}
+
+p#avisoError{
+  display: none; 
+  color: red;
+}
+
+.margenBotón {
+  margin-left: 900px;
+}
+
+div#formularioDatosDeEnvío{
+  display: none;
+}
+
+input#direcciónUsuario{
+  width: 80%; 
+  margin: 15px;
+}
+
+input#paísUsuario{
+  width: 80%; 
+  margin: 15px;
+}
+
+input#flexRadioDefault1{
+  width: 80%; 
+  margin: 15px;
+}
+
+
+input#flexRadioDefault2{
+  width: 80%; 
+  margin: 15px;
+}
+
+input#flexRadioDefault3{
+  width: 80%; 
+  margin: 15px;
+}
+
+.márgenes-formularioFacturación{
+  width: 80%; 
+  margin: 15px;
+}
+
+div#formularioFacturación{
+  display: none;
+}
+

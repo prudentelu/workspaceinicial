@@ -18,8 +18,8 @@ function showImagesGallery(array) {
         `
 
         document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
-    }
-}
+    };
+};
 
 
 function showcoments(array) {
