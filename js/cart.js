@@ -13,14 +13,15 @@ function showBoughtProducts(array) {
         var cell3 = row.insertCell(2);
         var cell4 = row.insertCell(3);
         var cell5 = row.insertCell(4);
-        var x =
+        
 
-            cell1.innerHTML += `<img class="img-fluid img-thumbnail" style="width: 80px; height: 80px" src=" ` + productosComprados.src + `"> <br>`;
+        
+        cell1.innerHTML += `<img class="img-fluid img-thumbnail" style="width: 80px; height: 80px" src=" ` + productosComprados.src + `"> <br><br>`;
         cell1.innerHTML += productosComprados.name + `<br>`;
 
         cell2.innerHTML = `<input id= "botonCantidad" type="number" value="` + productosComprados.count + `" min="1" onChange= "calcularSubtotal()"> </input>`
-        cell3.innerHTML = productosComprados.unitCost;
-        cell4.innerHTML = `<p id="mostrarSubtotal"> ` + productosComprados.unitCost * productosComprados.count + `</p>`
+        cell3.innerHTML = productosComprados.unitCost + productosComprados.currency;
+        cell4.innerHTML = `<p id="mostrarSubtotal"> ` + (productosComprados.unitCost * productosComprados.count) + productosComprados.currency + `</p>`
         cell5.innerHTML = `<td><a href="">Quitar</a></td>`;
 
     };
