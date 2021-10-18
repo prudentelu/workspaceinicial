@@ -16,8 +16,8 @@ function showBoughtProducts(array) {
         
 
         
-        cell1.innerHTML += `<img class="img-fluid img-thumbnail" style="width: 80px; height: 80px" src=" ` + productosComprados.src + `"> <br><br>`;
-        cell1.innerHTML += productosComprados.name + `<br>`;
+        cell1.innerHTML += `<img class="img-fluid img-thumbnail" style="width: 100px; height: 100px; border: 3px solid cadetblue; margin: 10px;" src=" ` + productosComprados.src + `"> <br><br>`;
+        cell1.innerHTML += `<p>`+ productosComprados.name + `</p><br>`;
 
         cell2.innerHTML = `<input id= "botonCantidad" type="number" value="` + productosComprados.count + `" min="1" onChange= "calcularSubtotal()"> </input>`
         cell3.innerHTML = productosComprados.unitCost + productosComprados.currency;
