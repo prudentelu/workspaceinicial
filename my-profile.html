@@ -42,7 +42,8 @@
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="obtenerUsuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="obtenerUsuario" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
           Dropdown button
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -51,30 +52,56 @@
           <a class="dropdown-item" href="login.html" onclick="cerrarSesion()">Cerrar sesión</a>
         </div>
       </div>
-      <a class="py-2 d-none d-md-inline-block" href="my-profile.html" id= "obtenerUsuario"></a>
+      <a class="py-2 d-none d-md-inline-block" href="my-profile.html" id="obtenerUsuario"></a>
     </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 6 (Fecha de entrega: 31/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <main>
+    <section class="jumbotron text-center">
+    </section>
+    <div class="album py-5 bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  <footer class="text-muted bg-light">
-    <div class="container">
-      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+    <div class="text-center p-4">
+      <h2>Mi Perfil</h2>
     </div>
-  </footer>
-  <div class="alert fade alert-success" role="alert" id="alertResult">
-    <span id="resultSpan"></span>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
+    <div>
+      <h4 class="márgenes-formularioFacturación"style="margin: 25px;">Datos de cuenta</h4>
+    </div>
+    <form>
+      <div class="mb-3">
+        <div class="márgenes-formularioFacturación">
+          <label for="name" class="form-label">Nombre y Apellido:</label>
+          <input type="text" class="form-control" id="name"> </input>
+        </div>
+      </div>
+      <div class="márgenes-formularioFacturación">
+        <label for="botonedad" class="form-label">Edad:</label>
+        <input class="form-control" id="botonedad" type="number" min="18" max="99"> </input>
+      </div>
+      <div class="márgenes-formularioFacturación">
+        <label for="email" class="form-label">Dirección de correo:</label>
+        <input type="text" class="form-control" id="email"></input>
+      </div>
+      <div class="márgenes-formularioFacturación">
+        <label for="tel" class="form-label">Teléfono:</label>
+        <input type="text" class="form-control" id="tel"></input>
+      </div>
+      <p id="avisoError" style="display: none; color: red; text-align: center;">¡Hey! Debes completar todos tus datos antes de guardar.</p>
+
+      <div class="margenBotón">
+        <button id="guardarPer" type="button" class="btn btn-primary" onclick="guardarDatosPerfil()">Guardar</button>
+        <button id="editarPer" type="button" class="btn btn-primary" onclick="editarDatos()"
+          style="display: none;">Editar</button>
+      </div>
+      </div>
+    </form>
+  </main>
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
@@ -89,5 +116,4 @@
   <script src="js/init.js"></script>
   <script src="js/my-profile.js"></script>
 </body>
-
-</html> 
+</html>

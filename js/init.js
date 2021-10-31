@@ -57,6 +57,6 @@ function inicio(){ //Función para cambiar navergar hacia el index.html si se co
 
 function cerrarSesion(){
   sessionStorage.clear();
+  localStorage.clear();
   window.location.href = 'login.html'
-
 }
