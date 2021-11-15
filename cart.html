@@ -82,76 +82,166 @@
             <th scope="col">Costo unitario</th>
             <th scope="col">Subtotal</th>
             <th scope="col">Eliminar producto</th>
+            <th scope="col">Total a pagar</th>
           </tr>
         </thead>
       </table>
     </div>
     <div class="margenBotón">
-      <button type="button" id="confirmarlistadeproductos" class="btn btn-primary"
-        onclick=" mostrarDatosDeEnvío()">Confirmar</button><br><br><br>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Detalles de envío
+      </button><br><br>
+      <button id="botonFormaPago" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal"
+        data-target="#exampleModalLong">
+        Seleccionar forma de pago
+      </button><br><br>
+      <button id="botonFinalizarCompra" style="display: none;" type="button" class="btn btn-primary"> Finalizar
+        compra</button>
+      </button>
     </div>
+    
 
-
-    <div id="formularioDatosDeEnvío">
-      <h4 class="subtítulos">Datos de envío</h4>
-      <form>
-        <div class="mb-3">
-          <div class="márgenes-formularioFacturación">
-            <label for="direcciónUsuario" class="form-label">Dirección:</label>
-            <input type="text" class="form-control" id="direcciónUsuario"
-              placeholder="ej. Calle 11 esq. Av. Rivera - Nro: 203">
+    <!--Comienza código de ventana emergente-->
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Envío</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
-        </div>
-        <div class="mb-3">
-          <div class="márgenes-formularioFacturación">
-            <label for="paísUsuario" class="form-label">País:</label>
-            <input type="text" class="form-control" id="paísUsuario" placeholder="ej. Chile">
+          <div class="modal-body">
+            <h4 class="subtítulos">Completa los datos de envío</h4>
+            <form>
+              <div class="mb-3">
+                <div class="márgenes-formularioFacturación">
+                  <label for="direcciónUsuario" class="form-label">Dirección:</label>
+                  <input type="text" class="form-control" id="direcciónUsuario"
+                    placeholder="ej. Calle 11 esq. Av. Rivera - Nro: 203">
+                </div>
+              </div>
+              <div class="mb-3">
+                <div class="márgenes-formularioFacturación">
+                  <label for="paísUsuario" class="form-label">País:</label>
+                  <input type="text" class="form-control" id="paísUsuario" placeholder="ej. Chile">
+                </div>
+              </div>
+              <div class="mb-3">
+                <div class="márgenes-formularioFacturación">
+                  <label class="form-label">Tipo de envío:</label>
+                </div>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="oPremium" value="1.15"
+                  onclick="sumarCostoTotal()">
+                <label class="form-check-label" for="flexRadioDefault1">
+                  Premium (2-5 días) - Costo del 15% sobre el subtotal.
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="oExpress" value="1.7"
+                  onclick="sumarCostoTotal()">
+                <label class="form-check-label" for="flexRadioDefault2">
+                  Express (5-8 días) - Costo del 7% sobre el subtotal.
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="oStandard" value="1.5"
+                  onclick="sumarCostoTotal()">
+                <label class="form-check-label" for="flexRadioDefault1">
+                  Standard (12-15 días) - Costo del 5% sobre el subtotal.
+                </label> <br><br>
+                <p id="avisoError" class="form-text">¡Debes completar todos los datos antes de continuar!</p>
+              </div>
           </div>
-        </div>
-        <div class="mb-3">
-          <div class="márgenes-formularioFacturación">
-            <label class="form-label">Tipo de envío:</label>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver a atrás</button>
+            <button type="button" class="btn btn-primary" onclick="mostrarFactura()">Continuar</button>
           </div>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-          <label class="form-check-label" for="flexRadioDefault1">
-            Premium (2-5 días) - Costo del 15% sobre el subtotal.
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-          <label class="form-check-label" for="flexRadioDefault2">
-            Express (5-8 días) - Costo del 7% sobre el subtotal.
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-          <label class="form-check-label" for="flexRadioDefault1">
-            Standard (12-15 días) - Costo del 5% sobre el subtotal.
-          </label> <br><br>
-          <p id="avisoError" class="form-text">¡Debes completar todos los datos antes de continuar!</p>
-        </div>
-        <div class="margenBotón">
-          <button type="button" class="btn btn-primary" onclick="mostrarFactura()">Ver factura</button>
-        </div>
-    </div>
-
-    <div id="formularioFacturación">
-      <h4 class="subtítulos">Facturación</h4><br>
-      <div class="márgenes-formularioFacturación">
-        <imput type="text">Subtotal: <p>$</p>
-        </imput> <br>
-        <imput type="text">Costo de envío: <p>$</p>
-        </imput> <br>
-        <imput type="text">Total a pagar: <p>$</p>
-        </imput> <br>
-        <div class="margenBotón">
-          <button type="submit" class="btn btn-primary">Elegir forma de pago</button>
         </div>
       </div>
     </div>
+
+
+    <!--<br><br><br>
+
+    <div id="formularioFacturación">
+      <form action="">
+      <h4 class="subtítulos">Facturación</h4><br>
+      <div class="márgenes-formularioFacturación">
+        <label type="text">Subtotal: </label> <br>
+        <p id="fSubtotal"> $ </p><br><br>
+        <label type="text">Costo de envío:</label> <br>
+        <span id="fCostodeenvío"> $ </span><br><br>
+        <label type="text">Total a pagar: </label><br>
+        <p id="fCostoTotal"> $ </p><br><br>
+        <div class="margenBotón">
+           Button trigger modal
+         
+        </div>
+      </div>
     </form>
+    </div>-->
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Forma de pago</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h6>Escoge un método para finalizar compra</h6>
+            <div id="seccionPagoDep">
+              <div class="form-check">
+                <input id="pagoDeposito" class="form-check-input" type="radio" name="flexRadioPago" id="cuentaBanc">
+                <label class="form-check-label" for="flexRadioPago">Depósito</label><br>
+                <input class="form-control" id="numeroCedulaDeposito" type="number" placeholder="Nro de cédula"><br>
+                <button id="botonConfirmarDeposito" type="button" onclick="validarDeposito()" class="btn btn-primary">Confirmar</button>
+                <p id="avisoPagarAbitab" style="font-size: 10px; color: royalblue; display: none;">¡Perfecto! Ahora solo
+                  debes ir a Abitab con
+                  tu número de cédula y
+                  decir que realizarás un pago para "E.commerce-JaP"
+                </p>
+                <p id="avisoPagarAbitabError" style="font-size: 10px; color: red; display: none;">¡Hey! Debes elegir un solo método de pago e ingresar
+                  tu cédula sin puntos ni guión.
+                </p>
+              </div><br>
+            </div>
+            <div id="seccionPagoTarj">
+              <div class="form-check">
+                <input id="tarjeta" class="form-check-input" type="radio" name="flexRadioPago" id="oExpress">
+                <label  class="form-check-label" for="flexRadioPago">
+                  Pago con tarjeta
+                </label><br>
+                <div id="datosDePagoTarg">
+                  Completa los datos para concretar el pago
+                  <input class="form-control" id="nombreyapelllido" type="text" placeholder="Nombre y Apellido">
+                  <input class="form-control" id="numeroTarjeta" type="number" placeholder="Nro de tarjeta">
+                  <input class="form-control" id="vencimiento" type="text" placeholder="MM/AA">
+                  <input class="form-control" id="numverificador" type="number" placeholder="CVV">
+                </div>
+                <p id="avisoErrorPagoTarj" class="form-text" style="font-size: 10px; color: red; display: none;">¡Debes
+                  completar todos los datos antes de continuar!</p>
+              </div> <br>
+              <button id="botonConfirmarTarj" type="button" onclick="validarTarjeta()" class="btn btn-primary">Confirmar</button>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button id="cierreCompra" type="button" class="btn btn-primary" style="display: none;" onclick="showMensajeFinal()">Finalizar
+            compra</button>
+        </div>
+      </div>
+    </div>
 
   </main>
   <div id="spinner-wrapper">
